@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manufacturer Form</title>
+</head>
+<body>
+    <h1>Manufacturer Form</h1>
+    {% load crispy_forms_tags %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit">Save</button>
+    </form>
+    <p><a href="{% url 'manufacturer-list' %}">Back to Manufacturer List</a></p>
+</body>
+</html>

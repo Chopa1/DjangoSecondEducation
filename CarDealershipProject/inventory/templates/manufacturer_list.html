@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manufacturer List</title>
+</head>
+<body>
+<h1>Manufacturer List</h1>
+<a href="{% url 'manufacturer-create' %}">Add Manufacturer</a>
+<ul>
+    {% for manufacturer in manufacturers %}
+    <li>
+        <a href="{% url 'manufacturer-detail' manufacturer.pk %}">{{ manufacturer.name }}</a>
+        <a href="{% url 'manufacturer-update' manufacturer.pk %}">Edit</a>
+        <a href="{% url 'manufacturer-delete' manufacturer.pk %}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
