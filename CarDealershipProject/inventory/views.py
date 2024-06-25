@@ -1,9 +1,9 @@
 # inventory/views.py
-from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Manufacturer, Car
 from .forms import ManufacturerForm, CarForm
+from django.views.generic import TemplateView
 
 
 class ManufacturerListView(ListView):
@@ -68,3 +68,7 @@ class CarDeleteView(DeleteView):
     model = Car
     template_name = 'car_confirm_delete.html'
     success_url = reverse_lazy('car-list')
+
+
+class HomePageView(TemplateView):
+    template_name = 'home.html'

@@ -10,10 +10,12 @@ from .views import (
     CarDetailView,
     CarCreateView,
     CarUpdateView,
-    CarDeleteView
+    CarDeleteView,
+    HomePageView
 )
 
 urlpatterns = [
+    path('', HomePageView.as_view(), name='home'),
     path('manufacturers/', ManufacturerListView.as_view(), name='manufacturer-list'),
     path('manufacturers/<int:pk>/', ManufacturerDetailView.as_view(), name='manufacturer-detail'),
     path('manufacturers/new/', ManufacturerCreateView.as_view(), name='manufacturer-create'),
