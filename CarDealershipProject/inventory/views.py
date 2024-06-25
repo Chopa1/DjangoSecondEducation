@@ -1,9 +1,10 @@
 # inventory/views.py
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Manufacturer, Car
 from .forms import ManufacturerForm, CarForm
 from django.views.generic import TemplateView
+from .models import Car, Manufacturer
+from django.db.models import Avg, Max, Min
 
 
 class ManufacturerListView(ListView):
@@ -72,3 +73,23 @@ class CarDeleteView(DeleteView):
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
+
+
+class ReportView(TemplateView):
+    template_name = 'report.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Самая дорогая и самая дешевая машины
+        context['most_expensive_car'] = Car.objects.order_by('-price').first()
+        context['cheapest_car'] = Car.objects.order_by('price').first()
+
+        # Средняя цена по маркам
+        context['average_price_by_model'] = Car.objects.values('model').annotate(avg_price=Avg('price'))
+
+        # Средняя цена по производителям
+        context['average_price_by_manufacturer'] = Car.objects.values('manufacturer__name').annotate(
+            avg_price=Avg('price'))
+
+        return context
