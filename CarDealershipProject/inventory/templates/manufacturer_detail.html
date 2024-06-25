@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>{{ manufacturer.name }}</title>
+</head>
+<body>
+    <h1>{{ manufacturer.name }}</h1>
+    <p>Город производства: {{ manufacturer.country }}</p>
+    <p><a href="{% url 'manufacturer-update' manufacturer.pk %}">Изменить</a></p>
+    <p><a href="{% url 'manufacturer-delete' manufacturer.pk %}">Удалить</a></p>
+    <p><a href="{% url 'manufacturer-list' %}">Вернуться к списку производителей</a></p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Form</title>
+</head>
+<body>
+    <h1>Автомобиль</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% load crispy_forms_tags %}
+        {{ form|crispy }}
+        <button type="submit">Сохранить</button>
+    </form>
+    <p><a href="{% url 'car-list' %}">Вернуться к списку автомобилей</a></p>
+</body>
+</html>

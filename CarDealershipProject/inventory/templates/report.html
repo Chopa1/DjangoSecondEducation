@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Car Report</title>
+</head>
+<body>
+    <h1>Отчет</h1>
+
+    <h2>Самый дорогой автомобиль</h2>
+    <p>{{ most_expensive_car.manufacturer.name }} {{ most_expensive_car.model }}: ${{ most_expensive_car.price }}</p>
+
+    <h2>Самый дешевый автомобиль</h2>
+    <p>{{ cheapest_car.manufacturer.name }} {{ cheapest_car.model }}: ${{ cheapest_car.price }}</p>
+
+    <h2>Средняя цена по моделям</h2>
+    <ul>
+        {% for item in average_price_by_model %}
+            <li>{{ item.model }}: ${{ item.avg_price|floatformat:2 }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Средняя цена по производителям</h2>
+    <ul>
+        {% for item in average_price_by_manufacturer %}
+            <li>{{ item.manufacturer__name }}: ${{ item.avg_price|floatformat:2 }}</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{% url 'home' %}">Вернуться на главную страницу</a></p>
+</body>
+</html>

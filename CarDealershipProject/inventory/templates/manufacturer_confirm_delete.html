@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Confirm Delete</title>
+</head>
+<body>
+    <h1>Подтвердите удаление</h1>
+    <p>Вы уверены, что хотите удалить "{{ manufacturer.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Да, удалить</button>
+    </form>
+    <p><a href="{% url 'manufacturer-list' %}">Вернуться к списку автомобилей</a></p>
+</body>
+</html>
