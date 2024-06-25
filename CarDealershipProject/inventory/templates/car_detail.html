@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <title>{{ car.manufacturer.name }} {{ car.model }}</title>
 </head>
 <body>
     <h1>{{ car.manufacturer.name }} {{ car.model }}</h1>
-    <p>Year: {{ car.year }}</p>
-    <p>Price: {{ car.price }}</p>
-    <p>In Stock: {{ car.in_stock }}</p>
-    <p><a href="{% url 'car-list' %}">Back to Car List</a></p>
+    <p>Год: {{ car.year }}</p>
+    <p>Цена: {{ car.price }}</p>
+    <p>В наличии: {{ car.in_stock }}</p>
+    <p><a href="{% url 'car-list' %}">Вернуться к списку автомобилей</a></p>
 </body>
 </html>

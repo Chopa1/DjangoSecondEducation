@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from .forms import ManufacturerForm, CarForm
 from django.views.generic import TemplateView
 from .models import Car, Manufacturer
-from django.db.models import Avg, Max, Min
+from django.db.models import Avg
 
 
 class ManufacturerListView(ListView):
